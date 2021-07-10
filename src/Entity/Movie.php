@@ -50,6 +50,11 @@ class Movie
         $this->actors = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return true;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
