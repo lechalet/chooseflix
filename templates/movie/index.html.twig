@@ -22,6 +22,10 @@
                 <td>{{ movie.name }}</td>
                 <td>{{ movie.year }}</td>
                 <td>{{ movie.link }}</td>
+                <iframe src="{{ movie.link }}"></iframe>
+                {% for movi in movie.actors %}
+                    {{ movi.name }}
+                {% endfor %}
                 <td>
                     <a href="{{ path('movie_show', {'id': movie.id}) }}">show</a>
                     <a href="{{ path('movie_edit', {'id': movie.id}) }}">edit</a>
@@ -36,5 +40,4 @@
     </table>
 
     <a href="{{ path('movie_new') }}">Create new</a>
-    <iframe width="560" height="315" src='https://www.youtube.com/watch?v=j7RrsdP-WuM&ab_channel=FilmsActu' frameborder="0" allowfullscreen></iframe>";
 {% endblock %}

@@ -10,14 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/director")
- */
+#[Route('/director')]
 class DirectorController extends AbstractController
 {
-    /**
-     * @Route("/", name="director_index", methods={"GET"})
-     */
+    #[Route('/', name: 'director_index', methods: ['GET'])]
     public function index(DirectorRepository $directorRepository): Response
     {
         return $this->render('director/index.html.twig', [
@@ -25,9 +21,7 @@ class DirectorController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/new", name="director_new", methods={"GET","POST"})
-     */
+    #[Route('/new', name: 'director_new', methods: ['GET', 'POST'])]
     public function new(Request $request): Response
     {
         $director = new Director();
@@ -48,9 +42,7 @@ class DirectorController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="director_show", methods={"GET"})
-     */
+    #[Route('/{id}', name: 'director_show', methods: ['GET'])]
     public function show(Director $director): Response
     {
         return $this->render('director/show.html.twig', [
@@ -58,9 +50,7 @@ class DirectorController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}/edit", name="director_edit", methods={"GET","POST"})
-     */
+    #[Route('/{id}/edit', name: 'director_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Director $director): Response
     {
         $form = $this->createForm(DirectorType::class, $director);
@@ -78,9 +68,7 @@ class DirectorController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="director_delete", methods={"POST"})
-     */
+    #[Route('/{id}', name: 'director_delete', methods: ['POST'])]
     public function delete(Request $request, Director $director): Response
     {
         if ($this->isCsrfTokenValid('delete'.$director->getId(), $request->request->get('_token'))) {

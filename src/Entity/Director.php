@@ -37,18 +37,18 @@ class Director
     /**
      * @ORM\OneToMany(targetEntity=Movie::class, mappedBy="director")
      */
-    private $movie;
+    private $movies;
 
     public function __construct()
     {
-        $this->movie = new ArrayCollection();
+        $this->movies = new ArrayCollection();
     }
 
     public function __toString()
     {
         return true;
     }
-
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -93,15 +93,15 @@ class Director
     /**
      * @return Collection|Movie[]
      */
-    public function getMovie(): Collection
+    public function getMovies(): Collection
     {
-        return $this->movie;
+        return $this->movies;
     }
 
     public function addMovie(Movie $movie): self
     {
-        if (!$this->movie->contains($movie)) {
-            $this->movie[] = $movie;
+        if (!$this->movies->contains($movie)) {
+            $this->movies[] = $movie;
             $movie->setDirector($this);
         }
 
@@ -110,7 +110,7 @@ class Director
 
     public function removeMovie(Movie $movie): self
     {
-        if ($this->movie->removeElement($movie)) {
+        if ($this->movies->removeElement($movie)) {
             // set the owning side to null (unless already changed)
             if ($movie->getDirector() === $this) {
                 $movie->setDirector(null);
