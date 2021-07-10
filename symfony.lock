@@ -109,6 +109,9 @@
     "psr/log": {
         "version": "1.1.4"
     },
+    "symfony/asset": {
+        "version": "v5.3.2"
+    },
     "symfony/cache": {
         "version": "v5.3.0"
     },
@@ -169,6 +172,9 @@
             "./.env"
         ]
     },
+    "symfony/form": {
+        "version": "v5.3.3"
+    },
     "symfony/framework-bundle": {
         "version": "5.3",
         "recipe": {
@@ -206,6 +212,9 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
+    "symfony/options-resolver": {
+        "version": "v5.3.0"
+    },
     "symfony/orm-pack": {
         "version": "v2.1.0"
     },
@@ -213,6 +222,9 @@
         "version": "v5.3.0"
     },
     "symfony/polyfill-intl-grapheme": {
+        "version": "v1.23.0"
+    },
+    "symfony/polyfill-intl-icu": {
         "version": "v1.23.0"
     },
     "symfony/polyfill-intl-normalizer": {
@@ -288,13 +300,57 @@
     "symfony/string": {
         "version": "v5.3.0"
     },
+    "symfony/translation-contracts": {
+        "version": "v2.4.0"
+    },
+    "symfony/twig-bridge": {
+        "version": "v5.3.3"
+    },
+    "symfony/twig-bundle": {
+        "version": "5.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.3",
+            "ref": "3dd530739a4284e3272274c128dbb7a8140a66f1"
+        },
+        "files": [
+            "./config/packages/twig.yaml",
+            "./templates/base.html.twig"
+        ]
+    },
     "symfony/var-dumper": {
         "version": "v5.3.0"
     },
     "symfony/var-exporter": {
         "version": "v5.3.0"
     },
+    "symfony/webpack-encore-bundle": {
+        "version": "1.9",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.9",
+            "ref": "12e0ad8155c23b9f9290e8c49215d4ec921cdf71"
+        },
+        "files": [
+            "./assets/app.js",
+            "./assets/bootstrap.js",
+            "./assets/controllers.json",
+            "./assets/controllers/hello_controller.js",
+            "./assets/styles/app.css",
+            "./config/packages/assets.yaml",
+            "./config/packages/prod/webpack_encore.yaml",
+            "./config/packages/test/webpack_encore.yaml",
+            "./config/packages/webpack_encore.yaml",
+            "./package.json",
+            "./webpack.config.js"
+        ]
+    },
     "symfony/yaml": {
         "version": "v5.3.0"
+    },
+    "twig/twig": {
+        "version": "v3.3.2"
     }
 }
