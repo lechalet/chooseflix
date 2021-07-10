@@ -35,7 +35,7 @@ class Actor
     private $picture;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Movie::class, inversedBy="actors")
+     * @ORM\ManyToMany(targetEntity=Movie::class, mappedBy="actors")
      */
     private $movies;
 
@@ -91,25 +91,28 @@ class Actor
     }
 
     /**
-     * @return Collection|movie[]
+     * @return Collection|Movie[]
      */
     public function getMovies(): Collection
     {
         return $this->movies;
     }
 
-    public function addMovie(movie $movie): self
+    public function addMovie(Movie $movie): self
     {
         if (!$this->movies->contains($movie)) {
             $this->movies[] = $movie;
+            $movie->addActor($this);
         }
 
         return $this;
     }
 
-    public function removeMovie(movie $movie): self
+    public function removeMovie(Movie $movie): self
     {
-        $this->movies->removeElement($movie);
+        if ($this->movies->removeElement($movie)) {
+            $movie->removeActor($this);
+        }
 
         return $this;
     }

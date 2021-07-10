@@ -35,13 +35,12 @@ class Movie
     private $link;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Actor::class, mappedBy="movies")
+     * @ORM\ManyToMany(targetEntity=Actor::class, inversedBy="movies")
      */
     private $actors;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Director::class, inversedBy="movie")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Director::class, inversedBy="movies")
      */
     private $director;
 
@@ -108,7 +107,6 @@ class Movie
     {
         if (!$this->actors->contains($actor)) {
             $this->actors[] = $actor;
-            $actor->addMovie($this);
         }
 
         return $this;
@@ -116,9 +114,7 @@ class Movie
 
     public function removeActor(Actor $actor): self
     {
-        if ($this->actors->removeElement($actor)) {
-            $actor->removeMovie($this);
-        }
+        $this->actors->removeElement($actor);
 
         return $this;
     }
