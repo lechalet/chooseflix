@@ -28,8 +28,6 @@ class MovieType extends AbstractType
                 'multiple' => true,
                 'expanded' => true
               ))
-            // ->add('actors')
-            // ->add('director')
         ;
     }
 
