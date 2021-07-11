@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Actor;
 use App\Entity\Director;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\Movie;
@@ -21,7 +22,13 @@ class MovieType extends AbstractType
                 'class' => Director::class,
                 'choice_label' => 'name'
             ])
-            ->add('actors')
+            ->add('actors', EntityType::class, array(
+                'class' => Actor::class,
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => true
+              ))
+            // ->add('actors')
             // ->add('director')
         ;
     }
