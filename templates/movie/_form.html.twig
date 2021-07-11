@@ -1,4 +1,33 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="row">
+    <div class="col">
+        {{ form_start(form) }}
+        </br>
+        <div class="row justify-content-around">
+            <div class="col-10">
+                <label>Nom</label>
+                {{ form_widget(form.name, {'attr':{'class':'form-control'}})  }}
+                </br>
+
+                <label>Année</label>
+                {{ form_widget(form.year, {'attr':{'class':'form-control'}}) }}
+                </br>
+               
+                <label>Image</label>
+                {{ form_widget(form.link, {'attr':{'class':'form-control'}}) }} 
+                </br>
+
+                <label>Acteurs</label>
+                <ul class="list-group">
+                    <li class="list-group-item">{{ form_widget(form.actors, {'attr':{'class':'form-control'}}) }}</li>
+                </br>
+                </ul>
+  
+                <label>Nom</label>
+                {{ form_widget(form.director, {'attr':{'class':'form-control'}}) }}
+                </br>
+            </div>
+        </div>             
+    </div>
+<button class="btn btn-primary pull-right mt-3">{{ button_label|default('Enregistrer') }}</button>
+</div>
 {{ form_end(form) }}
