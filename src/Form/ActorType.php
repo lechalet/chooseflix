@@ -17,7 +17,6 @@ class ActorType extends AbstractType
             ->add('name')
             ->add('age')
             ->add('picture')
-            ->add('movies')
             ->add('movies', EntityType::class, array(
                 'class' => Movie::class,
                 'choice_label' => 'name',
