@@ -1,4 +1,30 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="row">
+    <div class="col">
+        </br>
+        <div class="row justify-content-around">
+            <div class="col-10">
+                <label>Nom de l'acteur</label>
+                {{ form_widget(form.name, {'attr':{'class':'form-control'}})  }}
+                </br>
+
+                <label>Age de l'acteur</label>
+                {{ form_widget(form.age, {'attr':{'class':'form-control'}}) }}
+                </br>
+
+                <label>Photo de l'acteur (saisir une URL)</label>
+                <ul class="list-group">
+                {{ form_widget(form.picture, {'attr':{'class':'form-control'}}) }} 
+                </br>
+
+                <label>Films(s) joué par l'acteur</label>
+                <ul class="list-group">
+                {{ form_widget(form.movies, {'attr':{'class':'form-control'}}) }} 
+                </br>
+
+            </div>
+        </div>             
+    </div>
+<button class="btn btn-primary pull-right mt-3">{{ button_label|default('Enregistrer') }}</button>
+</div>
 {{ form_end(form) }}

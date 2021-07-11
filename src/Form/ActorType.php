@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Actor;
+use App\Entity\Movie;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,7 +17,12 @@ class ActorType extends AbstractType
             ->add('name')
             ->add('age')
             ->add('picture')
-            ->add('movies')
+            ->add('movies', EntityType::class, array(
+                'class' => Movie::class,
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => true
+              ))
         ;
     }
 

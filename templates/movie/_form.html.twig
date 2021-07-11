@@ -1,4 +1,33 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="row">
+    <div class="col">
+        </br>
+        <div class="row justify-content-around">
+            <div class="col-10">
+                <label>Nom du film</label>
+                {{ form_widget(form.name, {'attr':{'class':'form-control'}})  }}
+                </br>
+
+                <label>Année de parution</label>
+                {{ form_widget(form.year, {'attr':{'class':'form-control'}}) }}
+                </br>
+               
+                <label>Image (Saisir une url)</label>
+                {{ form_widget(form.link, {'attr':{'class':'form-control'}}) }} 
+                </br>
+
+                <label>Acteurs (Ne pas cocher si pas dans la liste)</label>
+                <ul class="list-group">
+                {{ form_widget(form.actors, {'attr':{'class':'form-control'}}) }}
+                </br>
+                </ul>
+  
+                <label>Réalisateur (Sélectionner none si pas renseigné)</label>
+                {{ form_widget(form.director, {'attr':{'class':'form-control'}}) }}
+                </br>
+            </div>
+        </div>             
+    </div>
+<button class="btn btn-primary pull-right mt-3">{{ button_label|default('Enregistrer') }}</button>
+</div>
 {{ form_end(form) }}
